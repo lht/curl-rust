@@ -227,7 +227,7 @@ fn start_server() -> Handle {
     let mut listener = TcpListener::bind("127.0.0.1:0").unwrap();
     let port = listener.socket_name().unwrap().port;
 
-    spawn(proc() {
+    spawn(move || {
         let listener = listener;
         let mut srv = listener.listen().unwrap();
 
